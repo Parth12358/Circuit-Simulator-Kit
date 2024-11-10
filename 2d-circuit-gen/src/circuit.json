@@ -1,0 +1,18 @@
+{
+    "IC Boards used": [
+        "AND7400 - Gates: 2",
+        "NOT7404 - Gates: 1"
+    ],
+    "Connections": [
+        "IN1 to AND1IN1",
+        "IN2 to AND1IN2",
+        "IN3 to AND2IN1",
+        "IN4 to AND2IN2",
+        "AND1OUT to NOT1IN",
+        "AND2OUT to OUT2",
+        "NOT1OUT to OUT1",
+        "IN1 to OUT3",
+        "AND1OUT to OUT4"
+    ]
+}
+
