@@ -99,7 +99,7 @@ async def process_circuit_design(prompt: str) -> str:
 class CircuitDesignerGUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("Circuit Designer")
+        self.root.title("Circuit Generator")
         self.root.geometry("800x600")
         
         # Configure root grid
@@ -220,8 +220,7 @@ class CircuitDesignerGUI:
             self.show_output("Please enter a circuit design request.")
             return
         
-        prompt = f"""You are a circuit design instructor. Build digital circuits using ONLY:
-{self.components}
+        prompt = f"""You are a circuit design instructor. Build digital circuits using ONLY: {self.components}
 Use standard naming:
 Inputs: IN1, IN2, IN3...
 Outputs: OUT1, OUT2, OUT3...
@@ -229,6 +228,20 @@ Rules:
 Connect all inputs/outputs
 No floating inputs
 Last connection must go to output pin
+Don't generate any description
+
+Eg.
+IC Boards used:
+[IC 7400] - Gates: [NAND]
+[IC 7402] - Gates: [NOR]
+[IC 7404] - Gates: [NOT]
+
+Connections:
+[IN1] to [IC 7408 - AND1 Input 1]
+[IN2] to [IC 7408 - AND2 Input 1]
+[IN3] to [IC 7404 - NOT1 Input]
+[IN3] to [IC 7408 - AND2 Input 2]
+
 GENERATE ONLY:
 IC Boards used:
 [IC PART#] - Gates: [GATE#]
@@ -267,6 +280,20 @@ Current request: {request}"""
     def show_output(self, text):
         self.output_text.delete("1.0", tk.END)
         self.output_text.insert(tk.END, text)
+
+        # Save the entire output as a single string in JSON format
+        data = {
+            "Output": text
+        }
+
+        # Write to JSON file
+        file_name = "circuit_output.json"
+        try:
+            with open(file_name, 'w') as json_file:
+                json.dump(data, json_file, indent=4)
+            self.output_text.insert(tk.END, f"\nOutput saved to {file_name}")
+        except Exception as e:
+            self.output_text.insert(tk.END, f"\nError saving to JSON: {e}")
 
 def main():
     root = tk.Tk()
