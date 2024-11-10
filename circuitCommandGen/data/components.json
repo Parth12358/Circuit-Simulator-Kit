@@ -1,0 +1,103 @@
+[
+    {
+        "component": "AND",
+        "slug": "and-gate",
+        "code": "AND",
+        "description": "Takes 2 inputs and outputs 1 only when both inputs are 1",
+        "symbol": "&",
+        "inputs": 2,
+        "outputs": 1,
+        "truth_table": "0&0=0, 0&1=0, 1&0=0, 1&1=1",
+        "implementation": "Basic gate",
+        "verilog": "assign out = a & b;",
+        "build_notes": "A⋅B = Output",
+        "ic_details": {
+            "part_number": "7408",
+            "total_pins": 14,
+            "gates_per_ic": 4,
+            "vcc_pin": 14,
+            "gnd_pin": 7,
+            "pins_per_gate": 3,
+            "columns_needed": 7,
+            "rows_needed": 2,
+            "pin_mapping": {
+                "power": {
+                    "vcc": 14,
+                    "gnd": 7
+                },
+                "gate1": {"inputA": 1, "inputB": 2, "output": 3},
+                "gate2": {"inputA": 4, "inputB": 5, "output": 6},
+                "gate3": {"inputA": 9, "inputB": 10, "output": 8},
+                "gate4": {"inputA": 12, "inputB": 13, "output": 11}
+            }
+        }
+    },
+    {
+        "component": "OR",
+        "slug": "or-gate",
+        "code": "OR",
+        "description": "Takes 2 inputs and outputs 1 when either input is 1",
+        "symbol": "+",
+        "inputs": 2,
+        "outputs": 1,
+        "truth_table": "0+0=0, 0+1=1, 1+0=1, 1+1=1",
+        "implementation": "Basic gate",
+        "verilog": "assign out = a | b;",
+        "build_notes": "A+B = Output",
+        "ic_details": {
+            "part_number": "7432",
+            "total_pins": 14,
+            "gates_per_ic": 4,
+            "vcc_pin": 14,
+            "gnd_pin": 7,
+            "pins_per_gate": 3,
+            "columns_needed": 7,
+            "rows_needed": 2,
+            "pin_mapping": {
+                "power": {
+                    "vcc": 14,
+                    "gnd": 7
+                },
+                "gate1": {"inputA": 1, "inputB": 2, "output": 3},
+                "gate2": {"inputA": 4, "inputB": 5, "output": 6},
+                "gate3": {"inputA": 9, "inputB": 10, "output": 8},
+                "gate4": {"inputA": 12, "inputB": 13, "output": 11}
+            }
+        }
+    },
+    {
+        "component": "NOT",
+        "slug": "not-gate",
+        "code": "NOT",
+        "description": "Takes 1 input and inverts it",
+        "symbol": "!",
+        "inputs": 1,
+        "outputs": 1,
+        "truth_table": "!0=1, !1=0",
+        "implementation": "Basic gate",
+        "verilog": "assign out = !a;",
+        "build_notes": "!A = Output",
+        "ic_details": {
+            "part_number": "7404",
+            "total_pins": 14,
+            "gates_per_ic": 6,
+            "vcc_pin": 14,
+            "gnd_pin": 7,
+            "pins_per_gate": 2,
+            "columns_needed": 7,
+            "rows_needed": 2,
+            "pin_mapping": {
+                "power": {
+                    "vcc": 14,
+                    "gnd": 7
+                },
+                "gate1": {"input": 1, "output": 2},
+                "gate2": {"input": 3, "output": 4},
+                "gate3": {"input": 5, "output": 6},
+                "gate4": {"input": 9, "output": 8},
+                "gate5": {"input": 11, "output": 10},
+                "gate6": {"input": 13, "output": 12}
+            }
+        }
+    }
+]
