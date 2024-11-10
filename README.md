@@ -23,7 +23,7 @@ To run the VR Circuit Simulator, you'll need a compatible VR headset and the Uni
 
 The VR Circuit Simulator is supported by two additional projects that enhance its functionality and usability:
 
-### 1. Circuit Generator 🤖
+### 1. Circuit Generator-CircuitCommandGen 🤖
 
 The Circuit Generator is a tool that creates commands for circuits based on natural language input. It can also analyze pictures of circuits and generate corresponding instructions. This project is built using [technologies/languages used].
 
